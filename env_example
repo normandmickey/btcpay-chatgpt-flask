@@ -1,0 +1,4 @@
+OPENAI_API_KEY="Your OPENAI API KEY"
+BTCPAY_API_KEY = "Your BTCPayServer API Key"  
+BTCPAY_HOST_URL = "Your BTCPayServer URL"
+BTCPAY_STORE_ID = "Your BTCPayServer Store"

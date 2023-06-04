@@ -42,8 +42,7 @@ def test_create_invoice():
 
 # Define route to render HTML template
 @app.route("/")
-@csp_header({'script-src':"'self' 'wasm-unsafe-eval' 'unsafe-inline' https://code.jquery.com https://botomatic.co",'style-src':"'self' 'unsafe-inline'",'frame-src':"'self' https://btcpay.btcpi.com"})
-#@csp_header({'script-src':"'wasm-unsafe-eval'"})
+#@csp_header({'script-src':"'self' 'wasm-unsafe-eval' 'unsafe-inline' https://code.jquery.com https://botomatic.co",'style-src':"'self' 'unsafe-inline'",'frame-src':"'self' https://btcpay.btcpi.com"})
 def home():
     return render_template("index.html")
 
@@ -54,10 +53,21 @@ def api():
     question = request.json["question"]
     
     # Use OpenAI to generate answer
-    response = openai.Completion.create(
-        engine="text-davinci-003", prompt=f"Q: {question}\nA:", max_tokens=3000, n=1, stop=None, temperature=0.7,
+    #response = openai.Completion.create(
+    #    engine="text-davinci-003", prompt=f"Q: {question}\nA:", max_tokens=3000, n=1, stop=None, temperature=0.7,
+    #)
+    #answer = response.choices[0].text.strip()
+    
+    # Use OpenAI ChatCompletion
+    response = openai.ChatCompletion.create(
+      model="gpt-4",
+      max_tokens=500,
+      messages=[
+        {"role": "user", "content": question}
+      ]
     )
-    answer = response.choices[0].text.strip()
+    
+    answer = response.choices[0].message.content
     
     # Return answer as JSON
     return jsonify({"answer": answer})
