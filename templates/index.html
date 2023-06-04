@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAI Flask Example</title>
+     <script src="{{ url_for('static', filename='js/btcpay.js') }}"></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script type='text/javascript'>
+      function get_invoice(id) {
+       $.ajax({
+          url: '/createInvoice',
+          type: 'POST',
+          contentType: 'application/json',
+          success: function(response) {
+            id = response.id;
+            const answer = show_invoice(id);
+            document.getElementById('answer').innerHTML = answer;
+          }
+        });
+      }
+    </script>
+    <script type='text/javascript'>
+    function show_invoice(id) {
+      window.btcpay.showInvoice(id);
+    }
+      window.btcpay.onModalReceiveMessage((event) => {
+      if (event.data.status == "complete") {
+        const payment_status = "Payment Successful";
+        answer = get_answer();
+      } else {
+        const payment_status = "Payment Failed";
+        answer = ""
+      }
+        return answer;
+    });
+  </script>
+  <script>
+  function get_answer() {
+  document.getElementById('answer').innerHTML = "Generating Response...";
+  var question_element = document.getElementById("question-input");
+  var question = question_element.value;
+        $.ajax({
+          type: "POST",
+          url: "/api",
+          contentType: "application/json",
+          data: JSON.stringify({
+            question: question,
+          }),
+          success: function (response) {
+            const answer = response.answer;
+            $("#answer").text("Answer: " + answer);
+          },
+          error: function (error) {
+            console.log(error);
+            const answer = "";
+          },
+        });
+          return answer
+  }
+  </script>
+  <style>
+      .spin {
+        border: 16px solid #0042A4;
+        border-radius: 50%;
+        border-top: 16px solid #3775CF;
+        border-right: 16px solid #619BEE;
+        border-bottom: 16px solid #96BFF9;
+        border-left: 16px solid #C9E0FF;
+        width: 50px;
+        height: 50px;
+        -webkit-animation: spin 1.5s linear infinite;
+        animation: spin 1.5s linear infinite;
+      }
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ask me any question:</h1>
+    <form id="qa-form">
+      <input type="text" name="question" id="question-input" style="width: 400px;">
+      <button type="submit" onclick="get_invoice(); return false">Submit</button>
+    </form>
+    <div id="answer">Payment Pending</div>
+    <div id="spin" class="spin" style="display: none"></div>
+  </body>
+</html>
