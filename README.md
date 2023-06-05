@@ -12,8 +12,6 @@ This project is a demonstration of how to add a Bitcoin Lighting Paywall for the
 
 ### Installing
 
-* How to run the program
-* Step-by-step bullets
 ```
 git clone https://github.com/normandmickey/btcpay-chatgpt-flask.git
 cd btcpay-chatgpt-flask
