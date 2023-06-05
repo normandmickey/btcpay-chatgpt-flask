@@ -60,7 +60,7 @@ def api():
     
     # Use OpenAI ChatCompletion
     response = openai.ChatCompletion.create(
-      model="gpt-4",
+      model="gpt-3.5-turbo",
       max_tokens=500,
       messages=[
         {"role": "user", "content": question}
