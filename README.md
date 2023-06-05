@@ -1,5 +1,5 @@
 # btcpay-chatgpt-flask
-This project is a demonstration of how to add a Bitcoin Lighting Paywall for the OPENAI ChatGPT API using BTCPayServer and Flask.  
+This project is a demonstration of how to add a Bitcoin Lightning Paywall for the OPENAI ChatGPT API using BTCPayServer and Flask.  
 
 
 ## Getting Started
