@@ -27,7 +27,7 @@ cp env_example .env
 nano .env
 ```
 
-> To generate an API key, you need to log in to your BTCPay instance, click "Account" in the lower left corner, click 
+> To generate your BTCPayServer API key, you need to log in to your BTCPay instance, click "Account" in the lower left corner, click 
 > "Manage Account", click the "API Keys" tab, and then generate your key.
 
 * OPENAI_API_KEY="Your OpenAI API Key"
