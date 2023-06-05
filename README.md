@@ -8,7 +8,7 @@ This project is a demonstration of how to add a Bitcoin Lighting Paywall for the
 
 * OPENAI API Key
 * BTCPayServer Instance
-* Ubuntu VPS 
+* Ubuntu VPS or RaspberryPi (ad development server).
 
 ### Installing
 
@@ -32,7 +32,11 @@ nano .env
 * BTCPAY_STORE_ID = "Your BTCPayServer Store ID"
 
 Update the btcpay.js file under static/js
-Replace 
+```
+cp static/js/btcpay.js.example static/js/btcpay.js 
+nano static/js/btcpay.js
+```
+Find the line "var origin = 'YourBTCPayServerURL';" and replace YourBTCPayServerURL with your own.  Include https:// and port if necessary. 
 
 ```
 flask run
