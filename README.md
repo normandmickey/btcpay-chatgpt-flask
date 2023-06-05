@@ -27,13 +27,13 @@ cp env_example .env
 nano .env
 ```
 
+> To generate an API key, you need to log in to your BTCPay instance, click "Account" in the lower left corner, click 
+> "Manage Account", click the "API Keys" tab, and then generate your key.
+
 * OPENAI_API_KEY="Your OpenAI API Key"
 * BTCPAY_API_KEY = "Your BTCPayServer API Key"
 * BTCPAY_HOST_URL = "Your BTCPayServer Host URL"
 * BTCPAY_STORE_ID = "Your BTCPayServer Store ID"
-
-> To generate an API key, you need to log in to your BTCPay instance, click "Account" in the lower left corner, click 
-> "Manage Account", click the "API Keys" tab, and then generate your key.
 
 
 Update the btcpay.js file under static/js
