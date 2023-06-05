@@ -20,14 +20,18 @@ cd btcpay-chatgpt-flask
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-cp env.example .env
 ```
 
 Update the following variables in your .env file
-OPENAI_API_KEY="Your OpenAI API Key"
-BTCPAY_API_KEY = "Your BTCPayServer API Key"
-BTCPAY_HOST_URL = "Your BTCPayServer Host URL"
-BTCPAY_STORE_ID = "Your BTCPayServer Store ID"
+```
+cp env_example .env 
+nano .env
+```
+
+* OPENAI_API_KEY="Your OpenAI API Key"
+* BTCPAY_API_KEY = "Your BTCPayServer API Key"
+* BTCPAY_HOST_URL = "Your BTCPayServer Host URL"
+* BTCPAY_STORE_ID = "Your BTCPayServer Store ID"
 
 Update the btcpay.js file under static/js
 Replace 
