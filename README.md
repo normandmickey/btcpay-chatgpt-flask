@@ -8,7 +8,8 @@ This project is a demonstration of how to add a Bitcoin Lightning Paywall for th
 
 * OPENAI API Key
 * BTCPayServer Instance
-* Ubuntu VPS or RaspberryPi (ad development server).
+* Ubuntu VPS or RaspberryPi (for development server).
+* Python 3.10+
 
 ### Installing
 
